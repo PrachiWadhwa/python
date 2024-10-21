@@ -1,10 +1,16 @@
-name: Run Python File
+name: Run Python File with User Input
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      num1:
+        description: 'Enter the first number'
+        required: true
+        default: '0'
+      num2:
+        description: 'Enter the second number'
+        required: true
+        default: '0'
 
 jobs:
   run-python-file:
@@ -17,13 +23,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x' # Specify the Python version
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run Python script
-        run: python sum.py
-
+      - name: Run Python script with inputs
+        run: |
+          echo "Running Python script with user inputs..."
+          python sum.py ${{ github.event.inputs.num1 }} ${{ github.event.inputs.num2 }}
