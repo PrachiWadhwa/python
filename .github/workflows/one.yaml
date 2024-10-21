@@ -6,11 +6,11 @@ on:
       num1:
         description: 'Enter the first number'
         required: true
-        default: '0'
+      
       num2:
         description: 'Enter the second number'
         required: true
-        default: '0'
+       
 
 jobs:
   run-python-file:
