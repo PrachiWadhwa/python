@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Updated to latest version
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4  # Updated to latest version
         with:
           python-version: '3.x'
 
@@ -34,7 +34,7 @@ jobs:
           python sum.py ${{ github.event.inputs.num1 }} ${{ github.event.inputs.num2 }} > output.txt
 
       - name: Upload output as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated to latest version
         with:
           name: script-output
           path: output.txt
