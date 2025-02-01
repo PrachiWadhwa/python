@@ -32,4 +32,4 @@ jobs:
       - name: Run Python script with inputs
         run: |
           echo "Running Python script with user inputs..."
-          python sum.py ${{ github.event.inputs.num1 }} ${{ github.event.inputs.num2 }}
+          python sum.py ${{ github.event.inputs.num1 }} ${{ github.event.inputs.num2 }} > output
